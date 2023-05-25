@@ -56,7 +56,7 @@ struct Login: View{
                                     if correo.isEmpty{
                                         Text(verbatim:"example@example.com").font(.caption).foregroundColor(.gray)
                                     }
-                                    TextField("", text:$correo)
+                                    TextField("", text:$correo).foregroundColor(.gray)
                                 }
                             }
                             Divider().background(Color("Fondo"))
@@ -72,7 +72,7 @@ struct Login: View{
                                         Text(verbatim: "Escribe tu contraseña").font(.caption).foregroundColor(.gray)
                                     }
                                     if mostrar{
-                                        TextField("", text:$contraseña).foregroundColor(.gray)
+                                        TextField("", text:$contraseña).foregroundColor(.black)
                                     }
                                     else{
                                         SecureField("",text:$contraseña).foregroundColor(.gray)
