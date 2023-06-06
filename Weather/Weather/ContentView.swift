@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Lottie
+import SPAlert
 
 struct ContentView: View {
     var body: some View {
@@ -19,11 +20,21 @@ struct ContentView: View {
 }
 
 struct Login: View{
+    @State private var isLoggedIn = false
+    @State var correoPre = "Clima@gmail.com"
+    @State var contraseñaPre = "climaso09"
     @State var show = false
     @State var mostrar = false
+    @State var showAlert = false
+    @State var showAlertContraseña = false
+    @State var showAlertCorreo = false
     @State var num = ""
     @State var correo = ""
     @State var contraseña = ""
+    @State var contrasenaCorrecta = false
+    let redIcon = UIImage(systemName: "xmark.seal.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+    let redIconCon = UIImage(systemName: "xmark.seal.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+    let triangle = UIImage(systemName: "exclamationmark.triangle.fill")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
     var body: some View{
         VStack{
             ZStack{
@@ -90,15 +101,68 @@ struct Login: View{
                         }
                         .padding(.vertical,2)
                         
-                        NavigationLink{
-                            Home()
-                        } label: {
-                            Text("Iniciar sesión").fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.vertical,10)
-                                .frame(width: UIScreen.main.bounds.width/1.2).background(Color("Fondo"))
-                                .clipShape(Capsule())
+                        NavigationLink(destination: Home(), isActive: $isLoggedIn) {
+                            EmptyView()
                         }
+                        .hidden()
+
+                    
+                        Button(action: {
+                            if contraseña.isEmpty && correo.isEmpty {
+                                showAlert = true
+                            } else if contraseña == contraseñaPre && correo == correoPre {
+                                  isLoggedIn = true
+                              }
+                            else if contraseña != contraseñaPre && correo == correoPre{
+                                showAlertContraseña = true
+                            }
+                            else if correo != correoPre && contraseña == contraseñaPre{
+                                showAlertCorreo = true
+                            }
+                        }) {
+                            Text("Iniciar sesión")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .padding(.vertical, 10)
+                                .frame(width: UIScreen.main.bounds.width / 1.2)
+                                .background(Color("Fondo"))
+                                .clipShape(Capsule())
+                        }.SPAlert(
+                            isPresent: $showAlert,
+                            title: "Completa los campos",
+                            message: "Por favor de llenar los campos que faltan",
+                            duration: 2.0,
+                            dismissOnTap: false,
+                            preset: .custom(triangle!),
+                            haptic: .success,
+                            layout: .init(),
+                            completion: {
+                                print("Alert is destory")
+                            })
+                        .SPAlert(
+                            isPresent: $showAlertContraseña,
+                            title: "Datos erróneos  en la contraseña",
+                            message: "La contraseña que se introdujo está mal",
+                            duration: 2.0,
+                            dismissOnTap: false,
+                            preset: .custom(redIconCon!),
+                            haptic: .success,
+                            layout: .init(),
+                            completion: {
+                                print("Alert is destory")
+                            })
+                        .SPAlert(
+                            isPresent: $showAlertCorreo,
+                            title: "Datos erróneos en el correo ",
+                            message: "El correo que se introdujo está  mal",
+                            duration: 2.0,
+                            dismissOnTap: false,
+                            preset: .custom(redIcon!),
+                            haptic: .success,
+                            completion: {
+                                print("Alert is destory")
+                            })
+
                         HStack{
                             Rectangle().fill(Color.black.opacity(0.3)).frame(height: 1)
                             Text("O").foregroundColor(.black)

@@ -53,3 +53,4 @@ struct Tadbar_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
+

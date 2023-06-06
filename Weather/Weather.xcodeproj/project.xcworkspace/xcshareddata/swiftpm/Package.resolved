@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
+        "version" : "5.7.1"
+      }
+    },
+    {
       "identity" : "bottomsheet",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Wouter125/BottomSheet.git",
@@ -15,6 +24,15 @@
       "location" : "https://github.com/airbnb/lottie-spm.git",
       "state" : {
         "revision" : "60ea4f82fba8b4cb21a75665a889e86ed4d81c6e",
+        "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "spalert",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPAlert.git",
+      "state" : {
+        "revision" : "5fd3e2923d26f0f0b40f0e6c10fca458a61a73c4",
         "version" : "4.2.0"
       }
     }

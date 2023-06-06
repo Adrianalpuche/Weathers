@@ -17,6 +17,9 @@
 		2435F34A2A12BE000086CE9F /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435F3492A12BE000086CE9F /* Extensiones.swift */; };
 		2435F34C2A12C2F30086CE9F /* Homeview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435F34B2A12C2F30086CE9F /* Homeview.swift */; };
 		2435F34E2A1306120086CE9F /* TadBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435F34D2A1306120086CE9F /* TadBar.swift */; };
+		24417E832A27B8AA00006213 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 24417E822A27B8AA00006213 /* Alamofire */; };
+		24417E862A27CC0F00006213 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 24417E852A27CC0F00006213 /* SPAlert */; };
+		2445AF4B2A2698130043CA52 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2445AF4A2A2698130043CA52 /* Api.swift */; };
 		2463C2622A04441B00A19832 /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2463C2612A04441B00A19832 /* WeatherApp.swift */; };
 		2463C2642A04441B00A19832 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2463C2632A04441B00A19832 /* ContentView.swift */; };
 		2463C2662A04441C00A19832 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2463C2652A04441C00A19832 /* Assets.xcassets */; };
@@ -59,6 +62,7 @@
 		2435F3492A12BE000086CE9F /* Extensiones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
 		2435F34B2A12C2F30086CE9F /* Homeview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homeview.swift; sourceTree = "<group>"; };
 		2435F34D2A1306120086CE9F /* TadBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TadBar.swift; sourceTree = "<group>"; };
+		2445AF4A2A2698130043CA52 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		2463C25E2A04441B00A19832 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2463C2612A04441B00A19832 /* WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApp.swift; sourceTree = "<group>"; };
 		2463C2632A04441B00A19832 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,7 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24417E832A27B8AA00006213 /* Alamofire in Frameworks */,
 				2463C28D2A046AB100A19832 /* Lottie in Frameworks */,
+				24417E862A27CC0F00006213 /* SPAlert in Frameworks */,
 				242963392A13EE3000CDCA3E /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +114,7 @@
 			children = (
 				2435F3492A12BE000086CE9F /* Extensiones.swift */,
 				242963352A13E33A00CDCA3E /* Shapes.swift */,
+				2445AF4A2A2698130043CA52 /* Api.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -248,6 +255,8 @@
 			packageProductDependencies = (
 				2463C28C2A046AB100A19832 /* Lottie */,
 				242963382A13EE3000CDCA3E /* BottomSheet */,
+				24417E822A27B8AA00006213 /* Alamofire */,
+				24417E852A27CC0F00006213 /* SPAlert */,
 			);
 			productName = Weather;
 			productReference = 2463C25E2A04441B00A19832 /* Weather.app */;
@@ -324,6 +333,8 @@
 			packageReferences = (
 				2463C28B2A046AB100A19832 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				242963372A13EE3000CDCA3E /* XCRemoteSwiftPackageReference "BottomSheet" */,
+				24417E812A27B8AA00006213 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				24417E842A27CC0F00006213 /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 2463C25F2A04441B00A19832 /* Products */;
 			projectDirPath = "";
@@ -382,6 +393,7 @@
 				246FE51E2A16DCFB005BFEBA /* Blur.swift in Sources */,
 				2463C2622A04441B00A19832 /* WeatherApp.swift in Sources */,
 				242E03232A18352200B14518 /* SegmentedControl.swift in Sources */,
+				2445AF4B2A2698130043CA52 /* Api.swift in Sources */,
 				2429633B2A13F9D700CDCA3E /* ForecastView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +729,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		24417E812A27B8AA00006213 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		24417E842A27CC0F00006213 /* XCRemoteSwiftPackageReference "SPAlert" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPAlert.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		2463C28B2A046AB100A19832 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -732,6 +760,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 242963372A13EE3000CDCA3E /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		24417E822A27B8AA00006213 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24417E812A27B8AA00006213 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		24417E852A27CC0F00006213 /* SPAlert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24417E842A27CC0F00006213 /* XCRemoteSwiftPackageReference "SPAlert" */;
+			productName = SPAlert;
 		};
 		2463C28C2A046AB100A19832 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
